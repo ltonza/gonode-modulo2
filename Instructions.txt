@@ -1,0 +1,15 @@
+criar src/ ,  src/app/ , src/app/views/
+
+yarn add express nunjucks sequelize
+yarn add sequelize-cli -D
+npx sequelize init
+
+mover config/  ->  src/
+criar src/database/
+mover migrations/ -> src/database/
+mover seeders/  -> src/database/
+mover models/ -> src/app/
+
+yarn add pg
+
+docker run --name database -p 5432:5432 -d -t kartoza/postgis

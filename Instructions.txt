@@ -1,3 +1,28 @@
+mkdir projeto
+cd projeto
+yarn init -y
+
+echo node_modules > .gitignore
+
+yarn add eslint -D
+npx eslint --init
+  --> Use a popular style guide
+  --> Standard
+  --> JSON
+  --> Would you like to install them now with npm? Y
+
+-------------------
+criar .editorconfig
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+------------------
+
 criar src/ ,  src/app/ , src/app/views/
 
 yarn add express nunjucks sequelize

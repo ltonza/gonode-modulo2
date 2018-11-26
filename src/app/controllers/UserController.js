@@ -6,9 +6,16 @@ class UserController {
   }
 
   async store (req, res) {
-    await User.create({ ...req.body, password_hash: req.body.password })
+    try {
+      const avatar = req.file && req.file.filename ? req.file.filename : ''
 
-    res.redirect('/')
+      await User.create({ ...req.body, avatar })
+    } catch (error) {
+      console.error(error)
+      return res.send(error)
+    }
+
+    return res.redirect('/')
   }
 }
 

@@ -51,3 +51,9 @@ git push -u origin master
 git remote add origin https://github.com/ltonza/gonode-modulo2.git
 git push -u origin master
 
+
+criar migration:
+npx sequelize migration:create --name=create-appointments
+
+após editar a migration, aplicar:
+npx sequelize db:migrate

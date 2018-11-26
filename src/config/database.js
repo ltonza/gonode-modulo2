@@ -4,7 +4,7 @@ module.exports = {
   username: 'rqnjppfg',
   password: '81uxvrwO5BAEaqAtch_IKP9_nKf1iOB4',
   database: 'rqnjppfg',
-  operadorAliases: false,
+  operatorsAliases: false,
   define: {
     timestamps: true,
     underscored: true,

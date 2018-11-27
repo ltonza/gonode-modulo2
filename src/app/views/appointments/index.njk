@@ -8,12 +8,12 @@
     {% for schedule in schedules %}
       <li class="provider">
         <strong>{{schedule.time}}</strong>
-        {% if schedule.user %}
+        {% if schedule.customer %}
         <div>
-          <img src="/files/{{ schedule.user.avatar }}" />
-          <strong>{{schedule.user.name}}</strong>
+          <img src="/files/{{ schedule.customer.avatar }}" />
+          <strong>{{schedule.customer.name}}</strong>
         </div>
-        <a href="/app/appointments/delete/{{ schedule.user.id }}?date={{ schedule.value }}">-</a>
+        <a href="/app/appointments/delete/{{ schedule.customer.id }}?date={{ schedule.value }}">-</a>
         {% endif %}
       </li>
     {% endfor %}

@@ -24,7 +24,7 @@ class AppointmentController {
       return res.redirect('/app/dashboard')
     }
 
-    const date = moment().add(1, 'day')
+    const date = moment().add(-1, 'day')
     const appointments = await Appointment.findAll({
       where: {
         provider_id: req.session.user.id,
@@ -34,17 +34,15 @@ class AppointmentController {
             date.endOf('day').format()
           ]
         }
-      }
+      },
+      include: [
+        {
+          model: User,
+          as: 'Customer'
+        }
+      ]
     })
 
-    const users = [await User.findByPk(5)]
-
-    /*    for (var appointment in appointments) {
-      if (!users.find(f => f.id === appointment.user_id)) {
-        users.push(await User.findByPk(appointment.user_id))
-      }
-    }
-*/
     const schedule = [
       '8:00',
       '9:00',
@@ -73,7 +71,7 @@ class AppointmentController {
       return {
         time,
         value: value.format(),
-        user: appointment ? users.find(f => f.id === appointment.user_id) : null
+        customer: appointment ? appointment.Customer : null
       }
     })
 
